@@ -6,7 +6,8 @@ from django.conf.urls.static import static
 
 # for banner
 urlpatterns = [
-    path('', views.index, name="home"),
+    
+    path('', views.home, name="home"),
     
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
 

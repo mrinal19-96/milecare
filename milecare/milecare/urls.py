@@ -23,10 +23,10 @@ from milecare import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.homepage),
-    path('about/',views.aboutpage),
-    path('team/', views.teampage),
-    path('contact/',views.contactpage),
-    # for home page
+    # path('about/',views.aboutpage),
+    # path('team/', views.teampage),
+    # path('contact/',views.contactpage),
+    # # for home page
     path('', include('home.urls')),
     
 ]
