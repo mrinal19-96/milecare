@@ -28,17 +28,20 @@
 		<div class="shape" data-aos="fade-down-left" data-aos-duration="500" data-aos-delay="0"></div>
 	</div>
 	<div class="container">
+		{% if banner_data %}
+		{% for banner in banner_data %}
 		<div class="row align-items-center">
 			<div class="col-md-6 order-2 order-md-1 text-center text-md-left">
-				<h1 class="text-white font-weight-bold mb-4">Showcase your app with Small Apps</h1>
-				<p class="text-white mb-5">Besides its beautiful design. Laapp is an incredibly rich core framework for you to
-					showcase your App.</p>
+				<h1 class="text-white font-weight-bold mb-4">{{ banner.title }}</h1>
+				<p class="text-white mb-5">{{ banner.description }}</p>
 			
 			</div>
 			<div class="col-md-6 text-center order-1 order-md-2">
-				<img class="img-fluid" src="{% static 'images/mobile.png' %}" alt="screenshot">
+				<img class="img-fluid" src="{{ banner.thumbnail.url }}" alt="screenshot">
 			</div>
 		</div>
+		{% endfor %}
+		{% endif %}
 	</div>
 </section>
 <!--====  End of Hero Section  ====-->

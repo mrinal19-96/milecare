@@ -1,13 +1,14 @@
 from django.db import models
 from django.utils.html import mark_safe
 
+
 # Create your models here.
 class HomeBanner(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     thumbnail = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
-    # publish_date = models.DateTimeField(auto_now_add=True,editable=False)
-    # created_at = models.DateTimeField( auto_now_add = True)
+    # created_at = models.DateTimeField(auto_now_add=True)
+    # updated_at = models.DateTimeField(auto_now=True)
     
     
 # for image field
