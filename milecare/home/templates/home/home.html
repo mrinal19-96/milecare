@@ -53,25 +53,16 @@
 	<div class="container">
 		<div class="rounded shadow p-5 bg-white">
 			<div class="row">
+				{% if banner_box %}
+				{% for box in banner_box %}
 				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-paint-bucket text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">themes made easy</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
-						tempore ipsam dignissimos molestias.</p>
+					<i class="{{box.BoxIcons}} text-primary h1"></i>
+					<h3 class="mt-4 text-capitalize h5 ">{{ box.BoxTitle}}</h3>
+					<p class="regular text-muted">{{ box.BoxDescription }}</p>
 				</div>
-				<div class="col-lg-4 col-md-6 mt-5 mt-md-0 text-center">
-					<i class="ti-shine text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">powerful design</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
-						tempore ipsam dignissimos molestias.</p>
-				</div>
-				<div class="col-lg-4 col-md-12 mt-5 mt-lg-0 text-center">
-					<i class="ti-thought text-primary h1"></i>
-					<h3 class="mt-4 text-capitalize h5 ">creative content</h3>
-					<p class="regular text-muted">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam non, recusandae
-						tempore ipsam dignissimos molestias.</p>
-					</p>
-				</div>
+			
+				{% endfor %}
+				{% endif %}
 			</div>
 		</div>
 	</div>

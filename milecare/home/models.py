@@ -9,7 +9,7 @@ class HomeBanner(models.Model):
     thumbnail = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
     # created_at = models.DateTimeField(auto_now_add=True)
     # updated_at = models.DateTimeField(auto_now=True)
-    
+
     
 # for image field
     @property
@@ -17,5 +17,12 @@ class HomeBanner(models.Model):
         if self.thumbnail:
             return mark_safe('<img src="{}" width="50" height="50" />'.format(self.thumbnail.url))
         return ""
+    
+# Home box
+class HomeBoxSection(models.Model):
+    BoxTitle = models.CharField(max_length=255)
+    BoxDescription = models.TextField()
+    BoxIcons = models.CharField(max_length=255)
+    
    
  
