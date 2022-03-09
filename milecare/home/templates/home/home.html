@@ -76,38 +76,38 @@
 <!--==================================
 =            Feature Grid            =
 ===================================-->
+{% if product_section %}
+{% for product in product_section %}
+
 <section class="feature section pt-0">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-6 ml-auto justify-content-center">
 				<!-- Feature Mockup -->
 				<div class="image-content" data-aos="fade-right">
-					<img class="img-fluid" src="{% static 'images/feature/feature-new-01.jpg' %}"alt="iphone">
+					<img class="img-fluid" src="{{ product.productivityImage.url }}"alt="iphone">
 				</div>
 			</div>
 			<div class="col-lg-6 mr-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>Increase your productivity with <a
-							href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a></h2>
+					<h2>{{product.productivityHeading }}</a></h2>
 					<!-- Feature Description -->
-					<p class="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-						labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-						aliquip ex ea commodo consequat.</p>
+					<p class="desc">{{ product.productivityDescription }}</p>
 				</div>
 				<!-- Testimonial Quote -->
 				<div class="testimonial">
 					<p>
-						"InVision is a window into everything that's being designed at Twitter. It gets all of our best work in one
-						place."
+						{{ product.productivityTestimonial}}
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="{% static  'images/testimonial/feature-testimonial-thumb.jpg' %}" alt="">
+							<img src="{{ product.writterImage.url }}" alt="">
 						</li>
-						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
+						<li class="list-inline-item">{{product.writterBy}}</li>
 					</ul>
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -119,36 +119,36 @@
 			<div class="col-lg-6 ml-auto align-self-center">
 				<div class="feature-content">
 					<!-- Feature Title -->
-					<h2>Increase your productivity with <a
-							href="https://themefisher.com/products/small-apps-free-app-landing-page-template/">Small Apps</a></h2>
+					<h2><a>{{ product.productHeadingTwo}}</a></h2>
 					<!-- Feature Description -->
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-						dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-						ea commodo consequat.</p>
+					<p>{{product.productDescriptionTwo}}</p>
 				</div>
 				<!-- Testimonial Quote -->
 				<div class="testimonial">
 					<p>
-						"InVision is a window into everything that's being designed at Twitter. It gets all of our best work in one
-						place."
+					{{product.productTestimonialTwo}}
 					</p>
 					<ul class="list-inline meta">
 						<li class="list-inline-item">
-							<img src="{% static  'images/testimonial/feature-testimonial-thumb.jpg' %}" alt="">
+							<img src="{{product.writterImageTwo.url}}" alt="">
 						</li>
-						<li class="list-inline-item">Jonathon Andrew , Themefisher.com</li>
+						<li class="list-inline-item">{{product.writter_by}}</li>
 					</ul>
 				</div>
 			</div>
+		
 			<div class="col-lg-6 mr-auto justify-content-center">
 				<!-- Feature mockup -->
 				<div class="image-content" data-aos="fade-left">
-					<img class="img-fluid" src="{% static  'images/feature/feature-new-02.jpg' %}" alt="ipad">
+					<img class="img-fluid" src="{{product.ProductImageTwo.url}}" alt="ipad">
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+{% endfor %}
+{% endif %}
 <!--====  End of Feature Grid  ====-->
 {% endblock featureGrid %}
 
