@@ -39,8 +39,7 @@ class Migration(migrations.Migration):
                 ('productivityTestimonial', models.CharField(max_length=255)),
                 ('writterImage', models.ImageField(blank=True, null=True, upload_to='post/thumbnail/%Y/%m/%d/')),
                 ('writterBy', models.CharField(max_length=255)),
-                ('palign', models.CharField(max_length=255)),
-                ('divpAlignClass', models.CharField(max_length=255)),
+              
             ],
         ),
     ]

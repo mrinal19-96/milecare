@@ -1,4 +1,5 @@
-from operator import mod
+from distutils.command.upload import upload
+from django.contrib.auth.models import User
 from django.db import models
 from django.utils.html import mark_safe
 
@@ -33,11 +34,11 @@ class HomeProductivity(models.Model):
     productivityTestimonial = models.CharField(max_length=255)
     writterImage = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
     writterBy = models.CharField(max_length=255)
-    productHeadingTwo = models.CharField(max_length=255)
-    productDescriptionTwo = models.TextField()
-    productTestimonialTwo = models.CharField(max_length=255)
+    productHeadingTwo = models.CharField(max_length=255, null=True)
+    productDescriptionTwo = models.TextField(null=True)
+    productTestimonialTwo = models.CharField(max_length=255 , null=True)
     ProductImageTwo = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
-    writter_by = models.CharField(max_length=255)
+    writter_by = models.CharField(max_length=255, null=True)
     writterImageTwo = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
     
     # for image field productivityImage_preview
@@ -71,6 +72,25 @@ class HomeProductivity(models.Model):
     
 # for Interface 
 class HomeInterface(models.Model):
-    pass
+    InterfaceHeading = models.CharField(max_length=255)
+    InterfaceDescription = models.TextField()
+    InterfaceBannerImage = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
+    titleOne = models.CharField(max_length=255)
+    headingOne = models.CharField(max_length=255)
+    titleTwo = models.CharField(max_length=255)
+    headingtwo = models.CharField(max_length=255)
+    TitleThree = models.CharField(max_length=255)
+    headingthree = models.CharField(max_length=255)
+    titleFour = models.CharField(max_length=255)
+    headingfour = models.CharField(max_length=255)
+    created_by = models.ForeignKey(User, default="", on_delete=models.CASCADE, null=True)
+    
+    # for writterImageTwo
+    @property
+    def InterfaceBannerImage_preview(self):
+        if self.InterfaceBannerImage:
+            return mark_safe('<img src="{}" width="50" height="50" />'.format(self.InterfaceBannerImage.url))
+        return ""
+    
    
  

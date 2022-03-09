@@ -1,7 +1,7 @@
 
 
 from django.contrib import admin
-from .models import HomeBanner, HomeBoxSection, HomeProductivity
+from .models import HomeBanner, HomeBoxSection, HomeProductivity, HomeInterface
 
 # Register your models here.
 
@@ -70,3 +70,30 @@ class HomeproductAdmin(admin.ModelAdmin):
 
     writterImageTwo_preview.short_description = 'writter Two Preview'
     writterImageTwo_preview.allow_tags = True
+    
+# for interface
+@admin.register(HomeInterface)
+class HomeinterfaceAdmin(admin.ModelAdmin):
+    list_display = [
+        'id', 
+        'InterfaceHeading',
+        'InterfaceDescription',
+        'InterfaceBannerImage_preview',
+        'titleOne',
+        'headingOne',
+        'titleTwo',
+        'headingtwo',
+        'TitleThree',
+        'headingthree',
+        'titleFour',
+        'headingfour',
+        
+        ]
+    
+    # for seccond  InterfaceBannerImage 
+    readonly_fields = ('InterfaceBannerImage_preview',)
+    def InterfaceBannerImage_preview(self, obj):
+        return obj.InterfaceBannerImage_preview
+
+    InterfaceBannerImage_preview.short_description = 'Iterface banner Two Preview'
+    InterfaceBannerImage_preview.allow_tags = True
