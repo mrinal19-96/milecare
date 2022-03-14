@@ -1,7 +1,7 @@
 
 
 from django.contrib import admin
-from .models import HomeBanner, HomeBoxSection, HomeProductivity, HomeInterface
+from .models import HomeBanner, HomeBoxSection, HomeProductivity, HomeInterface, HomeVideo, HomeTestimonial
 
 # Register your models here.
 
@@ -97,3 +97,22 @@ class HomeinterfaceAdmin(admin.ModelAdmin):
 
     InterfaceBannerImage_preview.short_description = 'Iterface banner Two Preview'
     InterfaceBannerImage_preview.allow_tags = True
+    
+# for video section
+@admin.register(HomeVideo)
+class HomeAdminVideo(admin.ModelAdmin):
+    list_display = ['id','Heading', 'Description','video_link']
+    
+# for Testimonial section
+@admin.register(HomeTestimonial)
+class HomeAdminTestimonial(admin.ModelAdmin):
+    list_display = ['id','content','writer_by']
+    
+      # for seccond  InterfaceBannerImage 
+    # readonly_fields = ('writer_by_Image_preview',)
+    # def writer_by_Image_preview(self, obj):
+    #     return obj.writer_by_Image_preview
+
+    # writer_by_Image_preview.short_description = 'writer Image Preview'
+    # writer_by_Image_preview.allow_tags = True
+    

@@ -1,4 +1,4 @@
-from distutils.command.upload import upload
+
 from django.contrib.auth.models import User
 from django.db import models
 from django.utils.html import mark_safe
@@ -91,6 +91,26 @@ class HomeInterface(models.Model):
         if self.InterfaceBannerImage:
             return mark_safe('<img src="{}" width="50" height="50" />'.format(self.InterfaceBannerImage.url))
         return ""
+    
+# for video section 
+class HomeVideo(models.Model):
+    Heading = models.CharField(max_length=255)
+    Description = models.TextField()
+    video_link = models.CharField(max_length=255)
+    
+# for testimonial section
+class HomeTestimonial(models.Model):
+    content = models.TextField()
+    # writer_image = models.ImageField(upload_to='post/thumbnail/%Y/%m/%d/', null=True, blank=True)
+    writer_by = models.CharField(max_length=255)
+    
+      # for writterImageTwo
+    # @property
+    # def writer_by_Image_preview(self):
+    #     if self.writer_by_Image_preview:
+    #         return mark_safe('<img src="{}" width="50" height="50" />'.format(self.writer_by_Image_preview.url))
+    #     return ""
+    
     
    
  

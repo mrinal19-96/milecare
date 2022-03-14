@@ -240,18 +240,20 @@
 <!--=================================
 =            Video Promo            =
 ==================================-->
+{% if video_sections %}
+{% for videos in video_sections %}
+
 <section class="video-promo section bg-1">
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="content-block">
 					<!-- Heading -->
-					<h2>Watch Our Promo Video</h2>
+					<h2>{{videos.Heading}}</h2>
 					<!-- Promotional Speech -->
-					<p>Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat, accumsan id imperdiet et,
-						porttitor at sem. Vivamus </p>
+					<p>{{videos.Description}} </p>
 					<!-- Popup Video -->
-					<a data-fancybox href="https://www.youtube.com/watch?v=jrkvirglgaQ">
+					<a data-fancybox href="{{videos.video_link}}">
 						<i class="ti-control-play video"></i>
 					</a>
 				</div>
@@ -259,6 +261,8 @@
 		</div>
 	</div>
 </section>
+{% endfor %}
+{% endif %}
 <!--====  End of Video Promo  ====-->
 {% endblock video %}
 
