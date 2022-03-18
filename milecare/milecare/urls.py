@@ -24,5 +24,6 @@ urlpatterns = [
   
     # # for home page
     path('', include('home.urls')),
+    path('', include('menu.urls')), 
     
 ]
